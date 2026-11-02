@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re-Life - Circular Economy & Waste Swap Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <i class="bi bi-arrow-repeat"></i>
+                <span>Re-Life</span>
+            </div>
+            <nav class="nav">
+                <a href="#home" class="nav-link active">Beranda</a>
+                <a href="#marketplace" class="nav-link">Marketplace</a>
+                <a href="#calculator" class="nav-link">Kalkulator Dampak</a>
+                <a href="#about" class="nav-link">Tentang</a>
+            </nav>
+            <button class="cart-btn" id="cartBtn">
+                <i class="bi bi-cart3"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1>Tukar Barang Bekas, Kurangi Limbah</h1>
+                    <p>Platform tukar-menukar barang bekas & limbah daur ulang antar warga dan industri lokal untuk mewujudkan ekonomi sirkular dan mengurangi penumpukan sampah.</p>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <div class="hero-stat-value" id="heroCo2">0</div>
+                            <div class="hero-stat-label">kg CO₂ Dihindari</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-value" id="heroItems">0</div>
+                            <div class="hero-stat-label">Barang Terselamatkan</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-value" id="heroUsers">0</div>
+                            <div class="hero-stat-label">Pengguna Aktif</div>
+                        </div>
+                    </div>
+                    <a href="#marketplace" class="cta-btn">Mulai Tukar Barang <i class="bi bi-arrow-right"></i></a>
+                </div>
+                <div class="hero-visual">
+                    <div class="eco-circle">
+                        <i class="bi bi-recycle"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="marketplace" class="marketplace">
+            <div class="section-header">
+                <h2>Marketplace Tukar-Menukar</h2>
+                <p>Pilih barang bekas berkualitas untuk mengurangi jejak lingkungan</p>
+            </div>
+
+            <div class="marketplace-layout">
+                <aside class="sidebar">
+                    <div class="filter-section">
+                        <h3><i class="bi bi-funnel"></i> Filter Kategori</h3>
+                        <div class="filter-group">
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="all" checked>
+                                <span>Semua Kategori</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="plastik">
+                                <span><i class="bi bi-cup"></i> Plastik</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="kayu">
+                                <span><i class="bi bi-tree"></i> Kayu</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="elektronik">
+                                <span><i class="bi bi-cpu"></i> Elektronik</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="logam">
+                                <span><i class="bi bi-gear"></i> Logam</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="tekstil">
+                                <span><i class="bi bi-bag"></i> Tekstil</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3><i class="bi bi-geo-alt"></i> Lokasi</h3>
+                        <select class="location-select" id="locationFilter">
+                            <option value="all">Semua Lokasi</option>
+                            <option value="jakarta">Jakarta</option>
+                            <option value="bandung">Bandung</option>
+                            <option value="surabaya">Surabaya</option>
+                            <option value="yogyakarta">Yogyakarta</option>
+                        </select>
+                    </div>
+                </aside>
+
+                <div class="products-area">
+                    <div class="products-header">
+                        <div class="products-count" id="productsCount">Menampilkan 0 barang</div>
+                        <select class="sort-select" id="sortSelect">
+                            <option value="default">Urutkan: Default</option>
+                            <option value="co2-high">Dampak CO₂ Tertinggi</option>
+                            <option value="co2-low">Dampak CO₂ Terendah</option>
+                        </select>
+                    </div>
+                    <div class="products-grid" id="productsGrid"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="calculator" class="calculator">
+            <div class="section-header">
+                <h2>Hitung Kontribusi Daur Ulang Anda</h2>
+                <p>Lihat perkiraan dampak positif yang bisa Anda berikan</p>
+            </div>
+            <div class="calculator-container">
+                <div class="calculator-inputs">
+                    <div class="calc-group">
+                        <label for="plasticSlider">Berat Plastik (kg)</label>
+                        <div class="slider-wrapper">
+                            <input type="range" id="plasticSlider" min="0" max="50" value="0" step="1">
+                            <div class="slider-value"><span id="plasticValue">0</span> kg</div>
+                        </div>
+                    </div>
+                    <div class="calc-group">
+                        <label for="woodSlider">Berat Kayu (kg)</label>
+                        <div class="slider-wrapper">
+                            <input type="range" id="woodSlider" min="0" max="50" value="0" step="1">
+                            <div class="slider-value"><span id="woodValue">0</span> kg</div>
+                        </div>
+                    </div>
+                    <div class="calc-group">
+                        <label for="metalSlider">Berat Logam (kg)</label>
+                        <div class="slider-wrapper">
+                            <input type="range" id="metalSlider" min="0" max="50" value="0" step="1">
+                            <div class="slider-value"><span id="metalValue">0</span> kg</div>
+                        </div>
+                    </div>
+                    <div class="calc-group">
+                        <label for="electronicSlider">Berat Elektronik (kg)</label>
+                        <div class="slider-wrapper">
+                            <input type="range" id="electronicSlider" min="0" max="30" value="0" step="1">
+                            <div class="slider-value"><span id="electronicValue">0</span> kg</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="calculator-results">
+                    <div class="result-card">
+                        <div class="result-icon co2">
+                            <i class="bi bi-cloud-slash"></i>
+                        </div>
+                        <div class="result-info">
+                            <div class="result-label">CO₂ yang Dihindari</div>
+                            <div class="result-value" id="co2Result">0 kg</div>
+                        </div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-icon energy">
+                            <i class="bi bi-lightning"></i>
+                        </div>
+                        <div class="result-info">
+                            <div class="result-label">Energi Dihemat</div>
+                            <div class="result-value" id="energyResult">0 kWh</div>
+                        </div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-icon tree">
+                            <i class="bi bi-tree"></i>
+                        </div>
+                        <div class="result-info">
+                            <div class="result-label">Setara Pohon</div>
+                            <div class="result-value" id="treeResult">0 pohon</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="section-header">
+                <h2>Tentang Re-Life</h2>
+                <p>Gerakan ekonomi sirkular untuk masa depan berkelanjutan</p>
+            </div>
+            <div class="about-content">
+                <div class="about-card">
+                    <i class="bi bi-bullseye"></i>
+                    <h3>Visi</h3>
+                    <p>Mewujudkan masyarakat berkelanjutan melalui pemanfaatan kembali barang bekas dan mengurangi penumpukan sampah.</p>
+                </div>
+                <div class="about-card">
+                    <i class="bi bi-shield-check"></i>
+                    <h3>Misi</h3>
+                    <p>Memfasilitasi pertukaran barang layak pakai, mengedukasi dampak lingkungan, dan membangun ekosistem daur ulang lokal.</p>
+                </div>
+                <div class="about-card">
+                    <i class="bi bi-globe"></i>
+                    <h3>SDGs</h3>
+                    <p>Mendukung SDG 12 (Responsible Consumption) dan SDG 13 (Climate Action) serta SDG 8 & 10.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="logo">
+                    <i class="bi bi-arrow-repeat"></i>
+                    <span>Re-Life</span>
+                </div>
+                <p>Circular Economy & Waste Swap Platform</p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Re-Life. Dibuat untuk masa depan yang lebih hijau.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Detail Barang</h3>
+                <button class="modal-close" id="modalClose"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <i class="bi bi-box-seam" id="modalIcon"></i>
+                </div>
+                <div class="modal-info">
+                    <p class="modal-desc" id="modalDesc"></p>
+                    <div class="modal-meta">
+                        <div class="meta-item">
+                            <i class="bi bi-tag"></i>
+                            <span id="modalCategory"></span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="bi bi-geo-alt"></i>
+                            <span id="modalLocation"></span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="bi bi-person"></i>
+                            <span id="modalOwner"></span>
+                        </div>
+                    </div>
+                    <div class="eco-impact-detail">
+                        <h4><i class="bi bi-leaf"></i> Dampak Lingkungan</h4>
+                        <div class="impact-row">
+                            <span>CO₂ yang dihemat:</span>
+                            <strong id="modalCo2">0 kg</strong>
+                        </div>
+                        <div class="impact-row">
+                            <span>Energi yang dihemat:</span>
+                            <strong id="modalEnergy">0 kWh</strong>
+                        </div>
+                        <div class="impact-row">
+                            <span>Air yang dihemat:</span>
+                            <strong id="modalWater">0 L</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="modalCancel">Batal</button>
+                <button class="btn-primary" id="modalCheckout">Lanjut ke Checkout Simulasi <i class="bi bi-arrow-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="checkoutModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Checkout Simulasi</h3>
+                <button class="modal-close" id="checkoutClose"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="checkout-summary">
+                    <h4>Ringkasan Permintaan</h4>
+                    <div class="checkout-item">
+                        <span id="checkoutItemName"></span>
+                        <span class="checkout-impact">Hemat <strong id="checkoutItemCo2"></strong> CO₂</span>
+                    </div>
+                </div>
+                <div class="checkout-form">
+                    <div class="form-group">
+                        <label for="checkoutName">Nama Lengkap</label>
+                        <input type="text" id="checkoutName" placeholder="Masukkan nama lengkap">
+                    </div>
+                    <div class="form-group">
+                        <label for="checkoutPhone">Nomor Telepon</label>
+                        <input type="tel" id="checkoutPhone" placeholder="08xx xxxx xxxx">
+                    </div>
+                    <div class="form-group">
+                        <label for="checkoutMessage">Pesan untuk Pemilik</label>
+                        <textarea id="checkoutMessage" rows="3" placeholder="Tulis pesan untuk mengatur waktu pengambilan..."></textarea>
+                    </div>
+                </div>
+                <div class="checkout-note">
+                    <i class="bi bi-info-circle"></i>
+                    <span>Ini adalah checkout simulasi tanpa payment gateway. Hanya untuk demonstrasi prototipe.</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="checkoutBack">Kembali</button>
+                <button class="btn-primary" id="checkoutSubmit">Kirim Permintaan Tukar <i class="bi bi-check-lg"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast">
+        <i class="bi bi-check-circle-fill"></i>
+        <span id="toastMessage">Permintaan berhasil dikirim!</span>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
