@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Saya - Re-Life</title>
+    <link rel="icon" type="image/x-icon" href="assets/re-life.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/re-life.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <i class="bi bi-arrow-repeat"></i>
+                <span>Re-Life</span>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Beranda</a>
+                <a href="index.html#marketplace" class="nav-link">Marketplace</a>
+                <a href="index.html#calculator" class="nav-link">Kalkulator Dampak</a>
+                <a href="index.html#about" class="nav-link">Tentang</a>
+            </nav>
+            <div class="header-actions-profile">
+                <a href="index.html#marketplace" class="header-action-btn">
+                    <i class="bi bi-shop"></i>
+                    Marketplace
+                </a>
+                <a href="login.html" class="header-logout-btn">
+                    <i class="bi bi-box-arrow-right"></i>
+                    Keluar
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="profile-main">
+        <div class="profile-hero">
+            <div class="profile-hero-bg"></div>
+            <div class="profile-hero-content">
+                <div class="profile-avatar-wrapper">
+                    <div class="profile-avatar-ring">
+                        <div class="profile-avatar">
+                            <i class="bi bi-person-fill"></i>
+                        </div>
+                    </div>
+                    <div class="profile-online-indicator"></div>
+                </div>
+                <div class="profile-identity">
+                    <h1>Rilja <i class="bi bi-patch-check-fill verified"></i></h1>
+                    <p class="profile-location"><i class="bi bi-geo-alt-fill"></i> Bandung, Indonesia</p>
+                    <p class="profile-tagline">#GoGreen • #CircularEconomy • #ZeroWaste</p>
+                </div>
+                <div class="profile-hero-actions">
+                    <button class="profile-action-btn primary">
+                        <i class="bi bi-pencil-square"></i>
+                        Edit Profil
+                    </button>
+                    <button class="profile-action-btn">
+                        <i class="bi bi-gear"></i>
+                        Pengaturan
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-content-wrapper">
+            <div class="profile-stats-row">
+                <div class="profile-stat-box">
+                    <div class="stat-box-icon items">
+                        <i class="bi bi-box2-heart"></i>
+                    </div>
+                    <div class="stat-box-info">
+                        <span class="stat-box-number">12</span>
+                        <span class="stat-box-label">Barang Diposting</span>
+                    </div>
+                </div>
+                <div class="profile-stat-box">
+                    <div class="stat-box-icon exchange">
+                        <i class="bi bi-arrow-repeat"></i>
+                    </div>
+                    <div class="stat-box-info">
+                        <span class="stat-box-number">8</span>
+                        <span class="stat-box-label">Sukses Ditukar</span>
+                    </div>
+                </div>
+                <div class="profile-stat-box">
+                    <div class="stat-box-icon pending">
+                        <i class="bi bi-hourglass-split"></i>
+                    </div>
+                    <div class="stat-box-info">
+                        <span class="stat-box-number">3</span>
+                        <span class="stat-box-label">Menunggu</span>
+                    </div>
+                </div>
+                <div class="profile-stat-box">
+                    <div class="stat-box-icon impact">
+                        <i class="bi bi-globe-americas"></i>
+                    </div>
+                    <div class="stat-box-info">
+                        <span class="stat-box-number">142.5</span>
+                        <span class="stat-box-label">kg CO₂ Terhindar</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-layout-grid">
+                <div class="profile-main-column">
+                    <div class="profile-card">
+                        <div class="profile-card-header">
+                            <h2><i class="bi bi-grid-1x2"></i> Koleksi Barang Saya</h2>
+                            <button class="card-header-btn">
+                                <i class="bi bi-plus-circle"></i>
+                                Tambah Baru
+                            </button>
+                        </div>
+                        <div class="items-showcase">
+                            <div class="showcase-item">
+                                <div class="showcase-item-img">
+                                    <i class="bi bi-tree"></i>
+                                    <span class="showcase-badge">Aktif</span>
+                                </div>
+                                <div class="showcase-item-details">
+                                    <h3>Meja Kayu Jati Bekas</h3>
+                                    <p>Kayu solid berkualitas</p>
+                                    <div class="showcase-item-footer">
+                                        <span class="eco-mini"><i class="bi bi-leaf"></i> 12 kg CO₂</span>
+                                        <span class="views-mini"><i class="bi bi-eye"></i> 24</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="showcase-item">
+                                <div class="showcase-item-img">
+                                    <i class="bi bi-chair"></i>
+                                    <span class="showcase-badge">Aktif</span>
+                                </div>
+                                <div class="showcase-item-details">
+                                    <h3>Kursi Kayu Bekas</h3>
+                                    <p>Bisa direstorasi</p>
+                                    <div class="showcase-item-footer">
+                                        <span class="eco-mini"><i class="bi bi-leaf"></i> 9.5 kg CO₂</span>
+                                        <span class="views-mini"><i class="bi bi-eye"></i> 18</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="showcase-item">
+                                <div class="showcase-item-img">
+                                    <i class="bi bi-bag-heart"></i>
+                                    <span class="showcase-badge">Aktif</span>
+                                </div>
+                                <div class="showcase-item-details">
+                                    <h3>Kain Perca Tekstil</h3>
+                                    <p>Cocok untuk kerajinan</p>
+                                    <div class="showcase-item-footer">
+                                        <span class="eco-mini"><i class="bi bi-leaf"></i> 4.8 kg CO₂</span>
+                                        <span class="views-mini"><i class="bi bi-eye"></i> 15</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-card">
+                        <div class="profile-card-header">
+                            <h2><i class="bi bi-inbox"></i> Permintaan Tukar</h2>
+                        </div>
+                        <div class="requests-timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-dot pending"></div>
+                                <div class="timeline-content">
+                                    <div class="timeline-header">
+                                        <div class="timeline-user">
+                                            <i class="bi bi-person-circle"></i>
+                                            <span>Andi Pratama</span>
+                                        </div>
+                                        <span class="timeline-time">2 jam lalu</span>
+                                    </div>
+                                    <p class="timeline-desc">Ingin menukar untuk <strong>Meja Kayu Jati Bekas</strong></p>
+                                    <p class="timeline-msg">"Bisa atur waktu pengambilan besok ya"</p>
+                                    <div class="timeline-actions">
+                                        <button class="timeline-btn accept">Terima</button>
+                                        <button class="timeline-btn decline">Tolak</button>
+                                        <button class="timeline-btn msg">Balas Pesan</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot pending"></div>
+                                <div class="timeline-content">
+                                    <div class="timeline-header">
+                                        <div class="timeline-user">
+                                            <i class="bi bi-person-circle"></i>
+                                            <span>Siti Nurhaliza</span>
+                                        </div>
+                                        <span class="timeline-time">5 jam lalu</span>
+                                    </div>
+                                    <p class="timeline-desc">Ingin menukar untuk <strong>Kursi Kayu Bekas</strong></p>
+                                    <p class="timeline-msg">"Tertarik sekali, masih bisa nego waktu?"</p>
+                                    <div class="timeline-actions">
+                                        <button class="timeline-btn accept">Terima</button>
+                                        <button class="timeline-btn decline">Tolak</button>
+                                        <button class="timeline-btn msg">Balas Pesan</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-side-column">
+                    <div class="profile-card">
+                        <div class="profile-card-header compact">
+                            <h2><i class="bi bi-award"></i> Pencapaian</h2>
+                        </div>
+                        <div class="achievements-list">
+                            <div class="achievement-card">
+                                <div class="achievement-badge eco-warrior">
+                                    <i class="bi bi-tree-fill"></i>
+                                </div>
+                                <div class="achievement-info">
+                                    <h4>Eco Warrior</h4>
+                                    <p>8x pertukaran berhasil</p>
+                                </div>
+                            </div>
+                            <div class="achievement-card">
+                                <div class="achievement-badge recycler">
+                                    <i class="bi bi-recycle"></i>
+                                </div>
+                                <div class="achievement-info">
+                                    <h4>Master Recycler</h4>
+                                    <p>Aktif selama 2 bulan</p>
+                                </div>
+                            </div>
+                            <div class="achievement-card">
+                                <div class="achievement-badge climate">
+                                    <i class="bi bi-cloud-sun"></i>
+                                </div>
+                                <div class="achievement-info">
+                                    <h4>Climate Hero</h4>
+                                    <p>>100kg CO₂ terhindar</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-card">
+                        <div class="profile-card-header compact">
+                            <h2><i class="bi bi-person-lines-fill"></i> Info Kontak</h2>
+                        </div>
+                        <div class="contact-info-list">
+                            <div class="contact-item">
+                                <i class="bi bi-envelope-at"></i>
+                                <div>
+                                    <span class="contact-label">Email</span>
+                                    <span class="contact-value">rilja@re-life.id</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="bi bi-telephone"></i>
+                                <div>
+                                    <span class="contact-label">Telepon</span>
+                                    <span class="contact-value">+62 812-3456-7890</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="bi bi-calendar-event"></i>
+                                <div>
+                                    <span class="contact-label">Bergabung Sejak</span>
+                                    <span class="contact-value">September 2026</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-card cta-profile-card">
+                        <div class="cta-card-content">
+                            <i class="bi bi-heart-fill"></i>
+                            <h3>Jadilah Bagian Perubahan</h3>
+                            <p>Mulai tukar barangmu hari ini dan kurangi limbah bersama kami</p>
+                            <a href="index.html#marketplace" class="cta-profile-btn">
+                                Jelajahi Marketplace
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="logo">
+                    <i class="bi bi-arrow-repeat"></i>
+                    <span>Re-Life</span>
+                </div>
+                <p>Circular Economy & Waste Swap Platform</p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Re-Life. Dibuat untuk masa depan yang lebih hijau.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
